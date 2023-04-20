@@ -21,12 +21,13 @@ public class CarServiceImpl implements CarService {
         cars.add(new Car(5,"BMW",525));
     }
 
-    public List<Car> all() {
-        return cars;
-    }
 
-    public List<Car> counted(int count) {
-        return cars.stream().limit(count).toList();
+    public List<Car> counted(Integer count) {
+        if (count != null){
+            return cars.stream().limit(count).toList();
+        } else {
+            return cars;
+        }
     }
 
 }
